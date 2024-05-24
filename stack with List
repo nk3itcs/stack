@@ -1,0 +1,52 @@
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class Stack{
+    List<Integer> data=new ArrayList<>();
+    int top;
+    int size;
+    Stack(int top,int size){
+        this.top=top;
+        this.size=size;
+    }
+    void push(int val){
+        if(top==size){
+            System.out.println("Stack is overflow");
+            return;
+        }
+
+        data.add(val);
+        top++;
+    }
+    int pop(){
+        if(top==-1)
+            System.out.println("stck is empty");
+        int ele=data.get(top);
+        data.remove(top);
+        top--;
+        return ele;
+    }
+    int peek(){
+        if(top==-1)
+                System.out.println("stack is empty");
+        return data.get(top);
+    }
+    void print(){
+        for(int i=0;i<=top;i++){
+            System.out.println(data.get(i)+" ");
+        }
+    }
+}
+public class Main{
+    public static  void main(String []args){
+        Stack st=new Stack(-1,5);
+        for(int i=1;i<=10;i++){
+            st.push(i);
+        }
+        st.pop();
+        System.out.println(st.peek());
+        st.print();
+    }
+}
